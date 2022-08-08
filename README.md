@@ -17,6 +17,7 @@ This should be done whilst in the virtual environment.
 To run the website, input:<br>
 
 <t>export FLASK_APP=run.py <br>
-<t>export FLASK_ENV=development flask run <br>
+<t>export FLASK_ENV=development <br>
+<t>flask run <br>
 
 You will have to install wkhtmltopdf separately at https://wkhtmltopdf.org/downloads.html After doing so go to views.py and change the variable 'wkh' to the path for yor wkhtmltopdf executable
