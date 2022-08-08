@@ -1,0 +1,25 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="container movies">
+ <div class="col align-items-start">
+  {% if results %}
+     {% for x in results %}
+       <div class="col">
+         <h3 class="movies-title">{{x.title}}</h3> </br>
+         <figure>
+           <img src={{x.url}} class="img-fluid" width="220" height="326" />
+           </a>
+          <figcaption>
+          <button onclick={{x.book}} class="btn btn-outline-secondary btn-sm">Book Now!</button>
+         </figcaption>
+       </div>  
+         
+     {% endfor %}  
+  {% else %}
+     <h3 class="movies-title" align="center">Sorry No Matching Results found!</h3>    
+  {% endif %}   
+ </div>
+
+
+
+  {% endblock %}

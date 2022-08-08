@@ -1,0 +1,38 @@
+{%extends "adminBase.html"%}
+{%block content%}
+
+<div>
+    <form action="" method="post" name="weekGraphs">
+        <br></br>
+        <div class="frontpage-centre"> 
+            <h1>Weekly Revenue</h1> 
+            <label for="From">Week Starting </label>
+            <input name="date" type="date">
+        </div>
+        <br></br>
+        <div class="graphs" id="chart">
+            <embed type="image/svg+xml" src= {{ chart|safe }} />
+        </div>
+
+        <script>
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+            if(dd<10){
+                    dd='0'+dd
+                } 
+                if(mm<10){
+                    mm='0'+mm
+                } 
+
+            today = yyyy+'-'+mm+'-'+dd;
+            document.getElementById("date").setAttribute("max", today);
+        </script>
+
+        <div class="frontpage-centre">  
+            <button type="submit">Render Graph</button>
+        </div>
+    </form>
+     
+{% endblock %}

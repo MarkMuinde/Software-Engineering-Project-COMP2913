@@ -1,0 +1,32 @@
+{%extends "preLoginBase.html"%}
+{%block content%}
+{% include '_messages.html' %}
+{% include '_formhelpers.html' %}
+{% from "_formhelpers.html" import render_field %}
+
+<div class="container customerlogin">
+
+  {% from "_formhelpers.html" import render_field %}
+  <form action="" method="post" name="customer">
+    {{ form.hidden_tag() }}
+
+    <p>
+    <h6 class="Email"></h6>
+    {{ render_field(form.emailCustomer, class="form-control")}}
+    </p>
+
+    <br></br>
+    
+    <p>
+    <h6 class="Password"></h6>
+    {{ render_field(form.passwordCustomer, class="form-control")}}
+    </p>
+
+    <br></br>
+
+    <p><input type="submit"></p>
+    <br></br>
+  </form>
+  <p>New Customer? <a href="{{ url_for('CustomerRegistration') }}">Click to Register</a></p>
+
+  {% endblock %}

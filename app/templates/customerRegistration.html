@@ -1,0 +1,41 @@
+{%extends "preLoginBase.html"%}
+{%block content%}
+{% include '_messages.html' %}
+{% include '_formhelpers.html' %}
+{% from "_formhelpers.html" import render_field %}
+
+<div class="container register">
+  <form action="" method="post" name="registration">
+    {{ form.hidden_tag() }}
+
+    <p>
+    <h6 class="Username"></h6>
+    {{ render_field(form.usernameCustomer, class="form-control")}}
+    </p>
+
+    <h6 class="Date">(YYYY-MM-DD)</h6>
+    <p>
+      {{ render_field(form.dateOfBirth, class="form-control")}}
+    </p>
+
+    <h6 class="Email"></h6>
+    <p>
+      {{ render_field(form.emailCustomer, class="form-control")}}
+    </p>
+
+    <h6 class="Password"></h6>
+    <p>
+      {{ render_field(form.passwordCustomer, class="form-control")}}
+    </p>
+
+    <h6 class="Password Verify"></h6>
+    <p>
+      {{ render_field(form.passwordCustomerVerify, class="form-control")}}
+      
+    </p>
+
+
+    <p><input type="submit"></p>
+  </form>
+
+{% endblock %}

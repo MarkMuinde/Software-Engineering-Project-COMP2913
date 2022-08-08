@@ -1,0 +1,48 @@
+{%extends "base.html"%}
+{%block content%}
+
+<head>
+    <script type="text/javascript" src="{{url_for('static', filename='js/paymentScript.js')}}" defer></script>
+</head>
+
+<!-- Set CSS-->
+<div class="container bookings center">
+
+    
+    <form action="{{url_for('payment')}}" method="post" name="payment">
+        <div>
+        <div class="payment-split payment-left">
+            <div class="payment-centre">
+              <img src= {{img}}>
+              <h1 id = name class="bookings-title center">{{form.name}}</h1>
+              <h2>£{{total}}</h2>
+            </div>
+          </div>
+          
+          <div id = "cardPayment" class="payment-split payment-right shown-payment"> 
+            <div class="payment-centre">
+                <input class ="payment-input" type="text" id="name" name="name" placeholder = "Name"><br><br>
+                <input class ="payment-input" type="text" id="email" name="email" placeholder = "Email"><br><br>
+                <input class ="payment-input" type="text" id="cardName" name="cardName" placeholder = "Name on Card"><br><br>
+                <input class ="payment-input" type="text" id="cardNum" name="cardNum" placeholder = "Card Number"><br><br>
+                <input class ="payment-input" type="text" id="cardDate" name="cardDate" placeholder = "MM/YY"><br><br>
+                <input class ="payment-input" type="text" id="cvv" name="cvv" placeholder = "CVV"><br><br>
+            
+                <div>
+                  <input type="checkbox" id="cashPay" name="cashPay" checked>
+                  <label for="cashPay">Pay with cash</label>
+                  <a">Paying with cash? Please enter your name and email.</a>
+              </div>
+
+                <br></br> <br></br> 
+
+                <!-- Booking button -->
+                <button class="btn btn-outline-secondary btn-sm">Pay Now</button>
+                <br></br>
+              
+            </div>
+          </div>
+    </form>
+
+
+{% endblock %}

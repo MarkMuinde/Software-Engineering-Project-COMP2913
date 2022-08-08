@@ -1,0 +1,41 @@
+{%extends "adminBase.html"%}
+{%block content%}
+
+<div>
+    <form action="" method="post" name="ticketGraphs">
+        <br></br>
+        <div class="frontpage-centre">  
+            <h1>Tickets Sold</h1>
+            <label for="From">From </label>
+            <input name="startDate" type="date">
+            <label for="To">To </label>
+            <input name="endDate" type="date">
+
+            <script>
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+                if(dd<10){
+                        dd='0'+dd
+                    } 
+                    if(mm<10){
+                        mm='0'+mm
+                    } 
+
+                today = yyyy+'-'+mm+'-'+dd;
+                document.getElementById("date").setAttribute("max", today);
+            </script>
+        </div>
+            
+        <div class="graphs" id="chart">
+            <embed type="image/svg+xml" src= {{ chart|safe }} />
+        </div>
+
+
+        <div class="frontpage-centre">
+            <button type="submit">Render Graph</button>
+        </div>
+    </form>
+     
+{% endblock %}

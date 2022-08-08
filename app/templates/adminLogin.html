@@ -1,0 +1,35 @@
+{%extends "preLoginBase.html"%}
+{%block content%}
+{% include '_messages.html' %}
+{% include '_formhelpers.html' %}
+{% from "_formhelpers.html" import render_field %}
+
+<!--Login Template For Admin-->
+
+<div class="container adminlogin">
+  
+  <form action="" method="post" name="admin">
+    <!--Display any error message-->
+      {{ form.hidden_tag() }}
+
+      <!--Render email and password input-->
+      <p>
+        <h6 class="Email"></h6>
+        {{ render_field(form.emailAdmin, class="form-control")}}
+      </p>
+
+      <br></br>
+
+      <p>
+        <h6 class="Password"></h6>
+        {{ render_field(form.passwordAdmin, class="form-control")}}
+      </p>
+
+      <br></br>
+
+      <p><input type="submit"></p>
+  </form>
+<p>New Boss? <a href="{{ url_for('AdminRegistration') }}">Click to Register</a></p>
+<br></br>
+
+{% endblock %}

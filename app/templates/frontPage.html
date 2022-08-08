@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+{%block content%}
+
+<div class = "frontpage">
+    <div class="frontpage-centre">    
+        <img src=static/img/logo.png class="img-thumbnail" width=400 height=400>
+        <br></br>
+        <h1>Welcome To Galaxy Cinema</h1>
+        <h3>Please Sign In Before Continuing</h3>
+        <br></br>
+        <button onclick="location.href='/customerLogin'" class="btn btn-outline-secondary btn-sm">Customer</button>
+        <button onclick="location.href='/employeeLogin'" class="btn btn-outline-secondary btn-sm">Employee</button>
+        <button onclick="location.href='/adminLogin'" class="btn btn-outline-secondary btn-sm">Admin</button>
+    </div>
+    <br></br><br></br>
+    
+{% endblock %}

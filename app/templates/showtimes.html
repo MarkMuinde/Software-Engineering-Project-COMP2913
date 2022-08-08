@@ -1,0 +1,94 @@
+{%extends "base.html"%}
+{%block content%}
+
+  <div class="container movies">
+    <div class="col align-items-start">
+
+      <div class="col">
+      <h3 class="movies-title">Mortal Kombat</h3>
+      <a href="mortalkombat">
+      <figure>
+      <img src="static/img/mk.png" class="img-fluid" />
+       </a>
+      <figcaption>
+        Viewing Times: 10:00am, 1:00pm, 3:30pm, 6:45pm: 9:45pm<br />
+        <button onclick="location.href='bookingsMK'" class="btn btn-outline-secondary btn-sm">Book Now!</button>
+      </figcaption>
+    </figure>
+
+      </div>
+
+      <div class="col">
+        <h3 class="movies-title">Judas And The Black Messiah</h3>
+        <a href="judas">
+        <figure>
+        <img src="static/img/blkjudas.png" class="img-fluid" />
+        </a>
+        <figcaption>
+          Viewing Times: 2:30pm, 5:15pm, 7:30pm, 10:00pm<br />
+          <button onclick="location.href='bookingsJudas'" class="btn btn-outline-secondary btn-sm">Book Now!</button>
+        </figcaption>
+      </figure>
+
+      </div>
+
+
+      <div class="col">
+        <h3 class="movies-title">Coming 2 America</h3>
+        <a href="coming2america">
+        <figure>
+        <img src="static/img/coming2america.png" class="img-fluid" width="220" height="326" />
+        </a>
+        <figcaption>
+          Viewing Times: 12:30pm, 3:00pm, 5:30pm, 7:00pm, 9:30pm, 11:00pm<br />
+          <button onclick="location.href='bookingsComing2'" class="btn btn-outline-secondary btn-sm">Book Now!</button>
+        </figcaption>
+      </figure>
+      </div>
+
+    </div>
+
+    <div class="col align-items-end">
+      <div class="col">
+        <h3 class="movies-title">Spiderman 3</h3>
+        <a href="spiderman3">
+        <figure>
+        <img src="static/img/spiderman3.png" class="img-fluid" width="220" height="326" />
+          </a>
+        <figcaption>
+          Viewing Times: 1:15pm, 3:30pm, 6:00pm, 8:15pm<br />
+          <button onclick="location.href='bookingsSpiderman3'" class="btn btn-outline-secondary btn-sm">Book Now!</button>
+        </figcaption>
+
+      </figure>
+
+      </div>
+      <div class="col">
+        <h3 class="movies-title">The Forever Purge</h3>
+        <a href="purge">
+        <figure>
+        <img src="static/img/foreverpurge.png" class="img-fluid" width="220" height="326" />
+      </a>
+        <figcaption>
+          Viewing Times: 8:25pm, 11:00pm, 1:25am<br />
+          <button onclick="location.href='bookingsPurge'" class="btn btn-outline-secondary btn-sm">Book Now!</button>
+        </figcaption>
+
+      </figure>
+      </div>
+
+      <div class="col">
+        <h3 class="movies-title">Venom: Let There Be Carnage</h3>
+        <a href="venom">
+        <figure>
+        <img src="static/img/venom.png" class="img-fluid" width="220" height="326" />
+        </a>
+        <figcaption>
+          Viewing Times: 1:15pm, 3:00pm, 6:15pm: 9:00pm<br />
+          <button onclick="location.href='bookingsVenom'" class="btn btn-outline-secondary btn-sm">Book Now!</button>
+        </figcaption>
+      </figure>
+      </div>
+    </div>
+
+{% endblock %}

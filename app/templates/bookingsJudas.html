@@ -1,0 +1,109 @@
+{%extends "base.html"%}
+{%block content%}
+
+<!--Booking Template For Judas-->
+
+<!-- Set CSS-->
+<div class="container bookings">
+    <form action="" method="post" name="bookings">
+      <script type="text/javascript" src="{{url_for('static', filename='js/bookingsScript.js')}}"></script>
+
+      <div class="container bookings-details">
+          <div class="bookings_image">
+            <img src="static/img/blkjudas.png" class="bookings-film-image" />
+          </div>
+          <div class="bookings-film-text">
+              <h1>Judas And The Black Messiah</h1>
+
+              <label for="Date">Select Date  </label>
+              <input onchange="changeDate()" name="date" type="date" min="2021-06-28" max = "2021-07-03">
+
+              <br></br>
+
+              <label for="Time">Select Time  </label>
+              <!-- Display showtimes in drop down list -->
+              <select onchange="changeTime()" name="time" id="time">
+                <option value="-">-</option>
+                <option value="14:30">14:30</option>
+                <option value="17:15">17:15</option>
+                <option value="19:30">19:30</option>
+                <option value="22:00">22:00</option>
+              </select>
+            </div>
+        </div>   
+
+        <br></br> <br></br>
+
+        <!--Select quantities for ticket by age-->
+
+        <div id="hiddenDisplay" class = "container hidden-display">
+                <div class = "bookings-tickets">
+                    <div class="ticket-quantity">
+                      <div class="ticket-quantity-box">
+                        <label for="Adult">Adult</label>
+                        <input class="booking-quantity" id="adultQuantity" name ="adultQuantity" onchange="changeAdult()" type="NUMBER" min="0" max="4" step="1" value="0" SIZE="6">
+
+                      </div>
+
+                      <div class="ticket-quantity-box">
+                        <label for="Child">Child</label>
+                        <input class="booking-quantity" id="childQuantity" name ="childQuantity" onchange="changeChild()" type="NUMBER" min="0" max="4" step="1" value="0" SIZE="6">
+                      </div>
+
+                      <div class="ticket-quantity-box">
+                        <label for="Senior">Senior</label>
+                        <input class="booking-quantity" id="seniorQuantity" name ="seniorQuantity" onchange="changeSenior()" type="number" min="0" max="4" step="1" value="0" SIZE="6">
+                      </div>
+                  </div>
+
+                  <!--Display quantities and calculations-->
+
+                  <div class="quantity-div">
+                    <table class="quantity-table">
+                      <tr>
+                        <th>Quantity</th>
+                        <th>Age</th> 
+                        <th>Price</th>
+                      </tr>
+                      <tr>
+                        <td id="tableAQ">0</td>
+                        <td>Adult</td>
+                        <td>£10.00</td>
+                      </tr>
+                      <tr>
+                        <td id="tableCQ">0</td>
+                        <td>Child</td>
+                        <td>£6.00</td>
+                      </tr>
+                      <tr>
+                        <td id="tableSQ">0</td>
+                        <td>Senior</td>
+                        <td>£6.00</td>
+                      </tr>
+                    </table>
+                    <b id="total" style="text-align: right">Total: £0.00</b>
+                  </div>
+
+                  <script type="text/javascript">
+                    checkForRestriction({{form.ageRestrictions|tojson}})
+                  </script>
+
+                </div>
+
+                <!--Display Seats-->
+                <div id = "seats" class = "bookings-seats">
+
+                </div>
+        </div>
+        
+
+        <br></br> 
+
+        <!-- Booking button -->
+        <button onclick="location.href='payment'" class="btn btn-outline-secondary btn-sm">Book Now!</button>
+
+    </form>
+
+    
+
+{% endblock %}

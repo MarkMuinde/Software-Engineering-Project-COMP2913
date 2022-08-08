@@ -1,0 +1,23 @@
+{%extends "base.html"%}
+{%block content%}
+
+<!-- Set CSS-->
+<div class="container bookings">
+   <form action="" method="post" name="bookings">
+
+      <div class="container frontpage-centre">
+         <img src="/static/img/confirmation.png">
+
+         <h1>Thank you for your purchase</h1>
+         <h1>You're going to watch {{name}}</h1>
+         <br></br>
+
+         <p><a href = "{{ url_for('home') }}">Make another booking</a></p>
+      </div>
+
+   </form>
+
+    <!--style="width:410px;height:410px;"-->
+    
+
+{% endblock %}

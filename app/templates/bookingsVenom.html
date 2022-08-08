@@ -1,0 +1,105 @@
+{%extends "base.html"%}
+{%block content%}
+
+<!-- Set CSS-->
+<div class="container bookings">
+    <form action="" method="post" name="bookings">
+      <script type="text/javascript" src="{{url_for('static', filename='js/bookingsScript.js')}}"></script>
+
+      <div class="container bookings-details">
+          <div class="bookings_image">
+            <img src="static/img/venom.png" class="bookings-film-image"  id="currImg" name ="currImg"/>
+          </div>
+          <div class="bookings-film-text">
+              <h1>Venom: Let There Be Carnage</h1>
+
+              <label for="Date">Select Date  </label>
+              <input onchange="changeDate()" name="date" type="date" min="2021-07-05" max = "2021-07-10">
+
+              <br></br>
+
+              <label for="Time">Select Time  </label>
+              <!-- Display showtimes in drop down list -->
+              <select onchange="changeTime()" name="time" id="time">
+                <option value="-">-</option>
+                <option value="10:00">10:00</option>
+                <option value="13:00">13:00</option>
+                <option value="15:30">15:30</option>
+                <option value="18:45">18:45</option>
+                <option value="21:45">21:45</option>
+              </select>
+            </div>
+        </div>   
+
+        <br></br> <br></br>
+
+        <div id="hiddenDisplay" class = "container hidden-display">
+                <div class = "bookings-tickets">
+                    <div class="ticket-quantity">
+                      <div class="ticket-quantity-box">
+                        <label for="Adult">Adult</label>
+                        <input class="booking-quantity" id="adultQuantity" name ="adultQuantity" onchange="changeAdult()" type="NUMBER" min="0" max="4" step="1" value="0" SIZE="6">
+
+                      </div>
+
+                      <div class="ticket-quantity-box">
+                        <label for="Child">Child</label>
+                        <input class="booking-quantity" id="childQuantity" name ="childQuantity" onchange="changeChild()" type="NUMBER" min="0" max="4" step="1" value="0" SIZE="6">
+                      </div>
+
+                      <div class="ticket-quantity-box">
+                        <label for="Senior">Senior</label>
+                        <!-- Display quantities of tickets available in drop down list-->
+                        <input class="booking-quantity" id="seniorQuantity" name ="seniorQuantity" onchange="changeSenior()" type="number" min="0" max="4" step="1" value="0" SIZE="6">
+                      </div>
+                  </div>
+
+                  <div class="quantity-div">
+                    <table class="quantity-table">
+                      <tr>
+                        <th>Quantity</th>
+                        <th>Age</th> 
+                        <th>Price</th>
+                      </tr>
+                      <tr>
+                        <td id="tableAQ">0</td>
+                        <td>Adult</td>
+                        <td>£10.00</td>
+                      </tr>
+                      <tr>
+                        <td id="tableCQ">0</td>
+                        <td>Child</td>
+                        <td>£6.00</td>
+                      </tr>
+                      <tr>
+                        <td id="tableSQ">0</td>
+                        <td>Senior</td>
+                        <td>£6.00</td>
+                      </tr>
+                    </table>
+                    <b id="total" style="text-align: right">Total: £0.00</b>
+                  </div>
+
+                  <script type="text/javascript">
+                    checkForRestriction({{form.ageRestrictions|tojson}})
+                 </script>
+
+                </div>
+                <div id = "seats" class = "bookings-seats">
+                </div>
+        </div>
+        
+
+        <br></br> 
+
+        <p> </p>
+        <p> </p>
+
+        <!-- Booking button -->
+        <button onclick="location.href='payment'" class="btn btn-outline-secondary btn-sm">Book Now!</button>
+
+    </form>
+
+    
+
+{% endblock %}
